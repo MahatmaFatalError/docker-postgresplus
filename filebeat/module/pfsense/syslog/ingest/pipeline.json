@@ -1,16 +1,12 @@
 {
-"description": "Pipeline for parsing Syslog messages.",
+"description": "Pipeline for parsing pfsense syslog messages.",
   "processors": [
     {
       "grok": {
         "field": "message",
         "patterns": [
-          "%{SYSLOGTIMESTAMP:system.syslog.timestamp} %{SYSLOGHOST:system.syslog.hostname} %{DATA:system.syslog.program}(?:\\[%{POSINT:system.syslog.pid}\\])?: %{GREEDYMULTILINE:system.syslog.message}",
-          "%{SYSLOGTIMESTAMP:system.syslog.timestamp} %{GREEDYMULTILINE:system.syslog.message}"
+          "%{SYSLOGTIMESTAMP:syslog_timestamp}: %{WORD:syslog_severity} %{SYSLOGHOST:syslog_hostname} %{SYSLOGPROG:syslog_program}:%{SPACE}%{GREEDYDATA:syslog_message}",
         ],
-        "pattern_definitions" : {
-          "GREEDYMULTILINE" : "(.|\n)*"
-        },
         "ignore_missing": true
       }
     },
@@ -21,7 +17,7 @@
     },
     {
       "date": {
-        "field": "system.syslog.timestamp",
+        "field": "syslog_timestamp",
         "target_field": "@timestamp",
         "formats": [
           "MMM  d HH:mm:ss",
