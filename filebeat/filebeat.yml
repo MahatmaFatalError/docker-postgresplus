@@ -5,11 +5,6 @@ filebeat.config.modules:
 output.elasticsearch:
   hosts:
     - elasticsearch:9200
-<<<<<<< HEAD
-      #  username: kibana
-      #  password: kibana
-=======
->>>>>>> 8128444a4a9cd614e0cda2b0c7b65cd475728f86
   index: filebeat
   pipeline: test_pipe
 
@@ -18,5 +13,5 @@ setup.template:
   pattern: "testbeat-%{[beat.version]}-*"
   overwrite: false
   fields: "/template/template.yml"
-      #setup.kibana:
-      #  host: "kibana:5601"
+    #setup.kibana:
+    #  host: "kibana:5601"
