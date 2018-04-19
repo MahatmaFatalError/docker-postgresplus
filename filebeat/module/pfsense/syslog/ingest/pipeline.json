@@ -5,7 +5,7 @@
       "grok": {
         "field": "message",
         "patterns": [
-          "%{SYSLOGTIMESTAMP:syslog_timestamp}: %{WORD:syslog_severity} %{SYSLOGHOST:syslog_hostname} %{SYSLOGPROG:syslog_program}:%{SPACE}%{GREEDYDATA:syslog_message}",
+          "%{SYSLOGTIMESTAMP:syslog_timestamp}: %{WORD:syslog_severity} %{SYSLOGHOST:syslog_hostname} %{SYSLOGPROG:syslog_program}:%{SPACE}%{GREEDYDATA:syslog_message}"
         ],
         "ignore_missing": true
       }
