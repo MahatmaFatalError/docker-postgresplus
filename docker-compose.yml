@@ -185,6 +185,7 @@ services:
       - ./filebeat/modules.d:/usr/share/filebeat/modules.d
       - ./filebeat/module:/usr/share/filebeat/module
       - ./filebeat/template:/template
+    command: -e -strict.perms=false
     networks:
       - default
 
