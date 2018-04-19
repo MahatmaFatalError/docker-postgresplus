@@ -184,6 +184,8 @@ services:
       - ./filebeat/modules.d:/usr/share/filebeat/modules.d
       - ./filebeat/module:/usr/share/filebeat/module
       - ./filebeat/template:/template
+    networks:
+      - default
 
 networks:
   pgnet:
