@@ -175,8 +175,9 @@ services:
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:6.2.3
-    network_mode: host
-   #      - filebeat
+    command: -e -strict.perms=false
+#   network_mode: host
+#      - filebeat
         #    extra_hosts:
         #      - "insight-elasticsearch.naturalis.nl:127.0.0.1"
     volumes:
