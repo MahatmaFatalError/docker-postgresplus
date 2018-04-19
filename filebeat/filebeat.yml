@@ -4,9 +4,7 @@ filebeat.config.modules:
 
 output.elasticsearch:
   hosts:
-    - elasticsearch.naturalis.nl:80
-  username: kibana
-  password: kibana
+    - elasticsearch:9200
   index: filebeat
   pipeline: test_pipe
 
