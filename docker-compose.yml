@@ -176,15 +176,12 @@ services:
   filebeat:
     image: docker.elastic.co/beats/filebeat:6.2.3
     command: -e -strict.perms=false
-#   network_mode: host
-#      - filebeat
-        #    extra_hosts:
-        #      - "insight-elasticsearch.naturalis.nl:127.0.0.1"
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
       - ./filebeat/modules.d:/usr/share/filebeat/modules.d
       - ./filebeat/module:/usr/share/filebeat/module
       - ./filebeat/template:/template
+      - /tmp/syslog:/log
     command: -e -strict.perms=false
     networks:
       - default
